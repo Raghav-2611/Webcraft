@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Line with Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .orange-line {
+            width: 100%;
+            height: 10px;
+            background-color: orange;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .container img {
+            max-width: 100px;
+            margin-right: 20px;
+            margin-top: 5%;
+        }
+
+        .middle-content {
+            text-align: left;
+            margin-bottom: 25%;
+            padding-left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="new_example.jpg" alt="New Example Image">
+    </div>
+    <div class="middle-content">
+        <h1>clearlydecoded/html-css-javascript-tutorial</h1>
+        <h4>Example code for HTML,CSS and Javascript for Web Developers Coursera Course</h4>
+    </div>
+    <div class="orange-line"></div>
+</body>
+</html>
