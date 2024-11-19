@@ -48,7 +48,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// 3D Flip for Navbar Links on Hover
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('mouseover', () => {
         link.classList.add('flip-3d');
@@ -58,7 +57,6 @@ document.querySelectorAll('.navbar a').forEach(link => {
     });
 });
 
-// Nav Toggle Button with 3D Spin
 const navToggle = document.createElement('button');
 navToggle.classList.add('nav-toggle', 'pulse');
 navToggle.textContent = 'Menu';
@@ -90,7 +88,6 @@ closeBtn.addEventListener('click', () => {
     navToggle.style.display = 'inline-block';
 });
 
-// 3D Tilt on Fade-In Elements
 fadeElements.forEach(element => {
     element.addEventListener('mouseenter', () => {
         element.classList.add('tilt-3d');
