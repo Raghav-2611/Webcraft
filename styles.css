@@ -1,108 +1,74 @@
-/* Reset and Global Styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Bounce Animation */
+.bounce {
+    animation: bounce 0.5s;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-/* Navigation Bar */
-.navbar {
-    background-color: #333;
-    padding: 15px;
-    text-align: center;
-}
-
-.navbar ul {
-    list-style: none;
-}
-
-.navbar li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-.navbar a:hover {
-    color: orange;
-}
-
-/* Header Section */
-.header {
-    text-align: center;
-    padding: 40px;
-    background-color: #f4f4f4;
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Testimonial Section */
-.testimonials {
-    text-align: center;
-    padding: 40px;
-    background-color: #fff3e0;
-}
-
-.testimonials h3 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.testimonial {
-    margin: 20px;
-    font-size: 1.2em;
-    color: #666;
-}
-
-.testimonial span {
-    display: block;
-    margin-top: 10px;
-    color: #333;
-}
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Orange Line */
-.orange-line {
-    width: 100%;
-    height: 8px;
-    background-color: orange;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    animation: slideIn 1.5s ease-in-out;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
     }
-
-    .navbar li {
-        display: block;
-        margin: 10px 0;
+    50% {
+        transform: translateY(-10px);
     }
+}
+
+/* Flip 3D Animation */
+.flip-3d {
+    animation: flip3d 0.6s ease;
+}
+@keyframes flip3d {
+    0% {
+        transform: rotateY(0);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0);
+    }
+}
+
+/* Spin 3D Animation */
+.spin-3d {
+    animation: spin3d 0.5s ease;
+}
+@keyframes spin3d {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+/* Tilt 3D Animation */
+.tilt-3d {
+    animation: tilt3d 0.4s ease;
+}
+@keyframes tilt3d {
+    0% {
+        transform: perspective(400px) rotateX(0) rotateY(0);
+    }
+    50% {
+        transform: perspective(400px) rotateX(10deg) rotateY(10deg);
+    }
+    100% {
+        transform: perspective(400px) rotateX(0) rotateY(0);
+    }
+}
+
+/* Parallax Background */
+.parallax {
+    height: 100vh;
+    background: url('https://via.placeholder.com/1500') no-repeat center center / cover;
+}
+
+/* General Styles */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
