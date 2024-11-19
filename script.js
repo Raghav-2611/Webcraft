@@ -3,8 +3,14 @@ document.querySelectorAll('.navbar a').forEach(anchor => {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth',
-            block: 'start' 
+            block: 'start'
         });
+    });
+    anchor.addEventListener('mouseover', () => {
+        anchor.classList.add('bounce');
+    });
+    anchor.addEventListener('mouseout', () => {
+        anchor.classList.remove('bounce');
     });
 });
 
@@ -22,8 +28,28 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 fadeElements.forEach(element => observer.observe(element));
 
+const zoomElements = document.querySelectorAll('.zoom-in');
+const zoomObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('zoom');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+zoomElements.forEach(element => zoomObserver.observe(element));
+
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax').forEach(el => {
+        let offset = window.pageYOffset;
+        el.style.backgroundPositionY = `${offset * 0.5}px`;
+    });
+});
+
 const navToggle = document.createElement('button');
-navToggle.classList.add('nav-toggle');
+navToggle.classList.add('nav-toggle', 'pulse');
 navToggle.textContent = 'Menu';
 document.querySelector('.navbar').appendChild(navToggle);
 
@@ -38,11 +64,17 @@ navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     closeBtn.style.display = 'inline-block';
     navToggle.style.display = 'none';
+    navToggle.classList.add('rotate');
+    setTimeout(() => navToggle.classList.remove('rotate'), 500);
 });
 
 closeBtn.addEventListener('click', () => {
     const navLinks = document.querySelector('.navbar ul');
-    navLinks.classList.remove('show');
-    closeBtn.style.display = 'none'; 
-    navToggle.style.display = 'inline-block'; 
+    navLinks.style.animation = 'fadeOut 0.5s';
+    setTimeout(() => {
+        navLinks.classList.remove('show');
+        navLinks.style.animation = '';
+    }, 500);
+    closeBtn.style.display = 'none';
+    navToggle.style.display = 'inline-block';
 });
