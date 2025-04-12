@@ -1,1 +1,1 @@
-Just a time pass project left swipe on it.
+Just a time pass project left swipe on it
